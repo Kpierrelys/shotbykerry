@@ -14,6 +14,9 @@ node_modules/
 # production
 /build
 
+client/package-lock.json
+package.json
+
 # misc
 .DS_Store
 .env.local
