@@ -19,7 +19,7 @@ const ContactMe = ({ focusContact }) => {
       const submitEmail = async (e) => {
         e.preventDefault();
         console.log('invoked...');
-        const response = await fetch("https://shotbykerry.herokuapp.com/send", {
+        await fetch("https://shotbykerry.herokuapp.com/send", {
           method: "POST",
           headers: {
             "Content-type": "application/json",
