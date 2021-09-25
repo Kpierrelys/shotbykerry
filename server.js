@@ -46,10 +46,7 @@ app.post("/send", function (req, res) {
  });
 });
 
-const port = process.env.port || 5000;
-app.listen(port, () => {
- console.log(`Server is running on port: ${port}`);
-});
+
 
 if(process.env.NODE_ENV === "production") {
   app.use(express.static('client/build'));
@@ -62,3 +59,8 @@ if(process.env.NODE_ENV === "production") {
       res.send('Api running');
   })
 }
+
+const port = process.env.port || 5000;
+app.listen(port, () => {
+ console.log(`Server is running on port: ${port}`);
+});
