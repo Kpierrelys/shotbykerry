@@ -478,7 +478,6 @@ i:hover {
 
   .navbar i {
     color: #000;
-    /* font-size: 30px; */
   }
 
   /************ PAGINATION ********/
@@ -532,10 +531,6 @@ i:hover {
     font-size: 30px;
     z-index: 3;
   }
-
-  /* .sidebar{
-    display: none;
-  } */
 
   .main,.about,.pagination,.container,.container-darkmode,.links,.about-container {
     margin: auto;

@@ -1,4 +1,5 @@
 import './App.css';
+
 import SideBar from './components/SideBar';
 import Portfolio from './components/Portfolio';
 import Aboutme from './components/Aboutme';
@@ -41,8 +42,6 @@ function App() {
   const focusOnContactwithOutFeature = () => {
     focusContact.current.scrollIntoView({ behavior: 'smooth' });
   }
-
- 
 
   return (
     <div>
