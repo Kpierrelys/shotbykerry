@@ -8,7 +8,6 @@ import ContactMe from './components/ContactMe';
 
 import { useRef, useState } from 'react';
 
-
 function App() {
 
   const [isActive, setActive] = useState(false);
