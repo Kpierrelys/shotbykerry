@@ -2,12 +2,13 @@ import './App.css';
 import SideBar from './components/SideBar';
 import Portfolio from './components/Portfolio';
 import Aboutme from './components/Aboutme';
-
-import { useRef } from 'react';
-import { useState } from 'react';
-import ContactMe from './components/ContactMe';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
+import ContactMe from './components/ContactMe';
+
+import { useRef, useState, useEffect } from 'react';
+import axios from 'axios';
+
 
 function App() {
 
@@ -43,10 +44,12 @@ function App() {
     focusContact.current.scrollIntoView({ behavior: 'smooth' });
   }
 
+ 
+
   return (
     <div>
       <div onClick={toggleNavbar} id={isActive ? "overlay" : ""}></div>
-      <Navbar  isActive={isActive} toggle={toggleNavbar}/>
+      <Navbar focusPortfolio={focusPortfolio} isActive={isActive} toggle={toggleNavbar}/>
       <SideBar close={toggleNavbar} focusOnPortfolioWithoutFeature={focusOnPortfolioWithoutFeature} focusOnAboutMeWithOutFeature={focusOnAboutMeWithOutFeature} focusOnContactwithOutFeature={focusOnContactwithOutFeature} isActive={isActive} focusOnContact={focusOnContact} focusOnPortfolio={focusOnPortfolio} focusOnAboutMe={focusOnAboutMe}/>
       <Portfolio isActive={isActive} focusPortfolio={focusPortfolio}/>
       <Aboutme isActive={isActive} focusAboutMe={focusAboutMe} />

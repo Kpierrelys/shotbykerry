@@ -6,7 +6,7 @@ const Portfolio = ({ isActive, focusPortfolio }) => {
     const [currentPage, setCurrentPage] = useState(1);
 
     
-    const photos = ['images/scarf.jpg','images/rockstarforSM.jpg','images/va.fb2.jpg', 'images/babyforfb.jpg', 'images/Ann1.png', 'images/pregoforprint.jpg', 'images/Vasnowfull.jpg', 'images/tn2.jpg', 'images/marie1.jpg', 'images/turtle.jpg', 'images/1.big.jpg', 'images/3flowers.png', 'images/babygirloff.jpg', 'images/bradley4.jpg', 'images/bradoff.jpg', 'images/darker.jpg', 'images/duck2.jpg', 'images/Ju.jpg', 'images/prego2forPrint.jpg', 'images/sampleval.jpg', 'images/sha.jpg', 'images/sha5.jpg', 'images/shaq8.jpg', 'images/2.big.jpg', 'images/3.big.jpg', 'images/vaforfb.jpg', 'images/stef.jpg', 'images/va.fb4.jpg', 'images/va.fb5.jpg', 'images/wedgirls.jpg'];
+    const photos = ['photos/scarf.jpg','photos/rockstarforSM.jpg','photos/va.fb2.jpg', 'photos/babyforfb.jpg', 'photos/Ann1.jpg', 'photos/pregoforprint.jpg', 'photos/Vasnowfull.jpg', 'photos/tn2.jpg', 'photos/marie1.jpg', 'photos/turtle.jpg', 'photos/1.big.jpg', 'photos/3flowers.jpg', 'photos/babygirloff.jpg', 'photos/bradley4.jpg', 'photos/bradoff.jpg', 'photos/darker.jpg', 'photos/duck2.jpg', 'photos/Ju.jpg', 'photos/prego2forPrint.jpg', 'photos/sampleval.jpg', 'photos/sha.jpg', 'photos/sha5.jpg', 'photos/shaq8.jpg', 'photos/2.big.jpg', 'photos/3.big.jpg', 'photos/vaforfb.jpg', 'photos/stef.jpg', 'photos/va.fb4.jpg', 'photos/va.fb5.jpg', 'photos/wedgirls.jpg'];
 
     const indexOfLastPhoto = currentPage * numOfImagesPerPage;
     const indexOfFirtsPhoto = indexOfLastPhoto - numOfImagesPerPage;
@@ -18,16 +18,10 @@ const Portfolio = ({ isActive, focusPortfolio }) => {
 
     const prev = () => setCurrentPage(currentPage - 1);
 
-
-    const pictures = [];
-    for (let i = 0; i < page.length; i++) {
-        pictures.push(page[i]);
-    };
-
     return (
         <div ref={focusPortfolio}>
             <div id='portfolio' className='main'>
-                {pictures.map(picture => 
+                {page.map(picture => 
                 <div key={picture} className='portfolio-images'>
                     <img src={picture} alt={picture} />
                 </div>

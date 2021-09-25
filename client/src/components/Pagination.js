@@ -1,5 +1,6 @@
 
-const Pagination = ({ isActive, numOfImagesPerPage, photos, paginate, currentPage, next, prev }) => {
+const Pagination = ({ numOfImagesPerPage, photos, paginate, currentPage, next, prev }) => {
+
 
     const numberOfPages = photos.length / numOfImagesPerPage;
     const pageNumbers = [];
@@ -11,15 +12,13 @@ const Pagination = ({ isActive, numOfImagesPerPage, photos, paginate, currentPag
     return (
             <div className='pagination'>
                 <ul>
-                    <p className={currentPage === 1 ? 'disable' : null} onClick={() => prev()} href='#'>&laquo;</p>
+                    <p className={currentPage === 1 ? 'disable' : null} onClick={() => prev()}>&laquo;</p>
                     {pageNumbers.map(pageNumber => (
-                        <a key={pageNumber} onClick={() => paginate(pageNumber)} href='!#'>
-                        <li key={pageNumber} className={currentPage === pageNumber ? 'active' : null}> 
+                        <li onClick={() => paginate(pageNumber)} key={pageNumber} className={currentPage === pageNumber ? 'active' : null}> 
                                 {pageNumber}
                         </li>
-                        </a>
                     ))}
-                    <p className={currentPage > numberOfPages ? 'disable' : null} onClick={() => next(numberOfPages)} href="#">&raquo;</p>
+                    <p className={currentPage > numberOfPages ? 'disable' : null} onClick={() => next(numberOfPages)}>&raquo;</p>
                 </ul>
             </div>
     )
