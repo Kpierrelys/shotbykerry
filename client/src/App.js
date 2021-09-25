@@ -6,8 +6,7 @@ import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import ContactMe from './components/ContactMe';
 
-import { useRef, useState, useEffect } from 'react';
-import axios from 'axios';
+import { useRef, useState } from 'react';
 
 
 function App() {
