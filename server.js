@@ -8,6 +8,23 @@ const { google } = require('googleapis');
 app.use(express.json());
 app.use(cors());
 
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+ console.log(`Server is running on port: ${PORT}`);
+});
+
+if(process.env.NODE_ENV === "production") {
+  app.use(express.static('client/build'));
+
+  app.get('*', (req, res) => {
+      res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  })
+} else {
+  app.get('/', (req, res) => {
+      res.send('Api running');
+  })
+}
+
 const oAuth2Client = new google.auth.OAuth2(process.env.OAUTH_CLIENTID, process.env.OAUTH_CLIENT_SECRET, process.env.REDIRECT_URI);
 
 oAuth2Client.setCredentials({ refresh_token: process.env.OAUTH_REFRESH_TOKEN });
@@ -52,23 +69,4 @@ app.post("/send", function (req, res) {
      });
    }
  });
-});
-
-
-
-if(process.env.NODE_ENV === "production") {
-  app.use(express.static('client/build'));
-
-  app.get('*', (req, res) => {
-      res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-  })
-} else {
-  app.get('/', (req, res) => {
-      res.send('Api running');
-  })
-}
-
-const port = process.env.port || 5000;
-app.listen(port, () => {
- console.log(`Server is running on port: ${port}`);
 });
