@@ -17,7 +17,6 @@ const ContactMe = ({ focusContact }) => {
 
       const submitEmail = async (e) => {
         e.preventDefault();
-        console.log('invoked...');
         await fetch("https://shotbykerry.herokuapp.com/send", {
           method: "POST",
           headers: {
